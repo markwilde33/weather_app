@@ -78,4 +78,14 @@ cityForm.addEventListener('submit', e => {
   // then pass the data returned to the upDateUI function, which will output it  to the browser
   .then(data => updateUI(data))
   .catch(err => console.log(err));
+
+  // set local storage
+  localStorage.setItem('city', city);
+
 });
+
+if(localStorage.getItem('city')){
+  updateCity(localStorage.getItem('city'))
+  .then(data => updateUI(data))
+  .catch(err => console.log(err));
+}
