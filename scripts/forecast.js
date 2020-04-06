@@ -28,14 +28,16 @@ const data = await response.json();
 //return the data, 1st result only
 return data[0];
 };
-//get the city returned by the promise
-getCity('leeds')
-.then(data => {
-  // get the Key returned by the city
-  return getWeather(data.Key)
-})
-.then(data => {
-  //log the data
-  console.log(data);
-})
-.catch(err => console.log(err));
+
+
+// //get the city returned by the promise
+// getCity('leeds')
+// .then(data => {
+//   // get the Key returned by the city
+//   return getWeather(data.Key)
+// })
+// .then(data => {
+//   //log the data
+//   console.log(data);
+// })
+// .catch(err => console.log(err));
