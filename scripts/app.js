@@ -34,12 +34,16 @@ const updateUI = (data) => {
   icon.setAttribute('src', iconSrc);
 
   //update the night/day icon images
-  let timeSrc = null;
-  if(weather.IsDayTime) {
-    timeSrc = 'img/day.svg';
-  } else {
-    timeSrc = 'img/night.svg';
-  }
+  // let timeSrc = null;
+  // if(weather.IsDayTime) {
+  //   timeSrc = 'img/day.svg';
+  // } else {
+  //   timeSrc = 'img/night.svg';
+  // }
+
+  //use the ternary operator instead of the above conditional statement
+  let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg';
+
   time.setAttribute('src', timeSrc);
 
   // remove the d-none class if present
