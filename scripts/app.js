@@ -4,6 +4,9 @@ const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 //get the div with a class of details
 const details = document.querySelector('.details');
+//get the img with a class of time
+const time = document.querySelector('img.time');
+
 
 //function to update the ui with the data returned from the cityForm function
 const updateUI = (data) => {
@@ -14,8 +17,8 @@ const updateUI = (data) => {
 
   //destructure properties - shorthand of the above comment
   const { cityDets, weather } = data;
+
   //update details template
-  
   details.innerHTML = `
     <h5 class="my-3">${cityDets.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
@@ -24,6 +27,15 @@ const updateUI = (data) => {
       <span>&deg;C</span>
     </div>
   `;
+
+  //update the night/day icon images
+  let timeSrc = null;
+  if(weather.IsDayTime) {
+    timeSrc = '/img/day.svg';
+  } else {
+    timeSrc = '/img/night.svg';
+  }
+  time.setAttribute('src', timeSrc);
 
   // remove the d-none class if present
   if(card.classList.contains('d-none')){
