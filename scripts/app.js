@@ -6,7 +6,8 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 //get the img with a class of time
 const time = document.querySelector('img.time');
-
+//get the div with a class of icon
+const icon = document.querySelector('.icon img');
 
 //function to update the ui with the data returned from the cityForm function
 const updateUI = (data) => {
@@ -28,12 +29,16 @@ const updateUI = (data) => {
     </div>
   `;
 
+  //update the weather condition icon image dynamically using the value returned by the WeatherIcon property
+  const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+  icon.setAttribute('src', iconSrc);
+
   //update the night/day icon images
   let timeSrc = null;
   if(weather.IsDayTime) {
-    timeSrc = '/img/day.svg';
+    timeSrc = 'img/day.svg';
   } else {
-    timeSrc = '/img/night.svg';
+    timeSrc = 'img/night.svg';
   }
   time.setAttribute('src', timeSrc);
 
