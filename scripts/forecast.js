@@ -1,4 +1,4 @@
-//get theAPI key needed for the app
+//get the API key needed for the app
 const key = 'TbzciWL68XHGkmJfJ1bmICvLzpekjAwa'
 //create an async function to get the city data, take in the current city Key as an argument for the id parameter
 const getWeather = async (id) => {
@@ -14,7 +14,6 @@ const getWeather = async (id) => {
   return data[0];
 };
 
-
 //create an async function to get the city data
 const getCity = async (city) => {
 //base url of the api endpoint the request is being made to
@@ -28,16 +27,3 @@ const data = await response.json();
 //return the data, 1st result only
 return data[0];
 };
-
-
-// //get the city returned by the promise
-// getCity('leeds')
-// .then(data => {
-//   // get the Key returned by the city
-//   return getWeather(data.Key)
-// })
-// .then(data => {
-//   //log the data
-//   console.log(data);
-// })
-// .catch(err => console.log(err));

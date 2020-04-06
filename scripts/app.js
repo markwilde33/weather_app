@@ -7,11 +7,15 @@ const details = document.querySelector('.details');
 
 //function to update the ui with the data returned from the cityForm function
 const updateUI = (data) => {
-  //store the data in local variables to reduce verbiage
-  const cityDets = data.cityDets;
-  const weather = data.weather;
 
+  // //store the data in local variables to reduce verbiage
+  // const cityDets = data.cityDets;
+  // const weather = data.weather;
+
+  //destructure properties - shorthand of the above comment
+  const { cityDets, weather } = data;
   //update details template
+  
   details.innerHTML = `
     <h5 class="my-3">${cityDets.EnglishName}</h5>
     <div class="my-3">${weather.WeatherText}</div>
@@ -35,7 +39,7 @@ const updateCity = async (city) => {
   //get the value to be returned and store it in the weather variable, get the Key of the inputted city stored in cityDets
   const weather = await getWeather(cityDets.Key);
   // return the values using object shorthand notation
-  return {cityDets, weather};
+  return { cityDets, weather };
 
 }
 
